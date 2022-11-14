@@ -98,15 +98,36 @@ function copa (now){
   }
 }
 
+//Sempre usar Mês-1
+//Ex: Dezembro = 11, Novembro = 10
+//Sim, javascript faz essa desgraça com datas
+//Att, Vinicius Petratti. 14.11.2022 <- aqui é novembro mesmo
+function feriados(now){
+  var feriados = [
+    "15/10/2022" //15 de novembro
+  ]
+
+  parsedNow = now.getDate() + "/" + now.getMonth() + "/" + now.getFullYear()
+
+  if(feriados.includes(parsedNow)){
+    return true
+  } else {
+    return false
+  }
+}
+
 function trigger() {
   var currentdate = offsetTime(options.timeZone);
   var rescopa = copa(currentdate);
-  if (rescopa){
+  var feriado = feriados(currentdate);
+  if(feriado){
+    return false
+  } else if (rescopa){
     return currentStatus(currentdate, options);
   } else {
     attributeApi.set('horarioCopa', true)
     return false;  
-  }
+  } 
 }
       
 var dataPayload = trigger();
