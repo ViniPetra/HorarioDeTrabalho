@@ -80,12 +80,12 @@ function currentStatus(date, options) {
 
 function copa (now){
   //Configuração das horas
-  var beginHour1 = new Date(2022, 10, 24, 15, 40, 00, 00);
-  var endHour1 = new Date(2022, 10, 24, 18, 10, 00, 00);
-  var beginHour2 = new Date(2022, 10, 28, 12, 30, 00, 00);
+  var beginHour1 = new Date(2022, 10, 24, 14, 30, 00, 00);
+  var endHour1 = new Date(2022, 10, 24, 18, 00, 00, 00);
+  var beginHour2 = new Date(2022, 10, 28, 12, 00, 00, 00);
   var endHour2 = new Date(2022, 10, 28, 15, 00, 00, 00);
-  var beginHour3 = new Date(2022, 11, 2, 15, 40, 00, 00);
-  var endHour3 = new Date(2022, 11, 2, 18, 10, 00, 00);
+  var beginHour3 = new Date(2022, 11, 2, 14, 30, 00, 00);
+  var endHour3 = new Date(2022, 11, 2, 18, 00, 00, 00);
 
   if(beginHour1 < now && endHour1 > now){
     return false;
@@ -104,7 +104,7 @@ function copa (now){
 //Att, Vinicius Petratti. 14.11.2022 <- aqui é novembro mesmo
 function feriados(now){
   var feriados = [
-    "15/10/2022" //15 de novembro
+    "15/10/2022"
   ]
 
   parsedNow = now.getDate() + "/" + now.getMonth() + "/" + now.getFullYear()
@@ -129,7 +129,7 @@ function trigger() {
     return false;  
   } 
 }
-      
+
 var dataPayload = trigger();
 console.log(dataPayload);
 attributeApi.set('result',dataPayload);
